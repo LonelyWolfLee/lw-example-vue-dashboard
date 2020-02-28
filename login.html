@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+</style>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <p>LOGIN</p>
+            <label for="id">ID</label> <input v-model="userId" id="id"> <br>
+            <label for="pw">PW</label> <input v-model="userPw" id="pw" type="password"> <br>
+            <button @click="submit">SUBMIT</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                userId: '',
+                userPw: '',
+                users: [{
+                    id: "hgkim",
+                    pw: "1234"
+                }]
+            },
+            methods: {
+                submit: function (event) {
+                    this.users.forEach(element => {
+                        if (element.id == this.userId) {
+                            if (element.pw == this.userPw) {
+                                location.href="index.html"
+                            }
+                            else{
+                                alert('비밀번호가 일치하지 않습니다')
+                            }
+                        }
+                        else {
+                            alert('아이디가 일치하지 않습니다.')
+                        }
+                    });
+                },
+            },
+            watch: {
+                userId: function (val) {
+                    if (val.length > 8) {
+                        alert('최대 8자까지만 입력할 수 있습니다.')
+                        this.userId = val.substring(0, 7)
+                    }
+                },
+                userPw: function (val) {
+                    if (val.length > 8) {
+                        alert('최대 8자까지만 입력할 수 있습니다.')
+                        this.userPw = val.substring(0, 7)
+                    }
+                }
+
+
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
