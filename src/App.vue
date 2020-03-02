@@ -1,32 +1,36 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-navigation-drawer app v-if="$store.state.token">Hello</v-navigation-drawer>
+    <!-- <v-app-bar app color="primary" dark v-if="$store.state.token">
+      <div class="d-flex align-center">
+        DOZN
+      </div>
+    </v-app-bar> -->
+
+    <v-content>
+      <router-view />
+    </v-content>
+    <!-- <v-footer app>Hello</v-footer> -->
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "App",
+
+  data: () => ({
+    //
+  })
+});
+</script>
+
+<style lang="scss" scope>
+.v-navigation-drawer__content {
+  background-color: var(--v-primary-base);
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.v-content {
+  background: var(--v-secondary-base);
 }
 </style>
