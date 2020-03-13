@@ -10,9 +10,9 @@
     </v-row>
     <v-row class="text-center" style="height:76%;">
       <v-col cols="12" class="mt-8">
-        <div class="title my-2 secondary--text hover">프로필 관리</div>
-        <div class="title my-2 secondary--text hover">휴가 관리</div>
-        <div class="title my-2 secondary--text hover">설정</div>
+        <router-link to="/profile" style="display:block;" class="title my-2 secondary--text hover">프로필 관리</router-link>
+        <router-link to="/vacation" style="display:block;" class="title my-2 secondary--text hover">휴가 관리</router-link>
+        <router-link to="/configure" style="display:block;" class="title my-2 secondary--text hover">설정</router-link>
       </v-col>
     </v-row>
     <v-row class="d-flex align-center primary darken-3" style="height:12%;">
